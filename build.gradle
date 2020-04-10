@@ -1,0 +1,32 @@
+plugins {
+	id 'application'
+	id 'java-library'
+}
+
+repositories {
+	jcenter()
+}
+
+sourceCompatibility = 14
+targetCompatibility = 14
+
+java {
+	modularity.inferModulePath = true
+}
+
+application {
+	mainModule = 'test.resources'
+	mainClass = 'test.resources.Main'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+dependencies {
+	testImplementation "org.junit.jupiter:junit-jupiter-api:5.6.2"
+	testImplementation "org.junit.jupiter:junit-jupiter-params:5.6.2"
+
+	testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.6.2"
+	testRuntimeOnly "org.junit.platform:junit-platform-launcher:1.6.2"
+}
